@@ -32,6 +32,7 @@ public class DbConnectionListener implements ServletContextListener {
 
     @Override
     public void contextDestroyed(ServletContextEvent sce) {
+        // ServletContext가 종료될 때, Tomcat종료 Connection 객체를 close ==> 메모리 누수를 방지
         Connection conn = (Connection) sce.getServletContext().getAttribute("conn");
         try {
             conn.close();

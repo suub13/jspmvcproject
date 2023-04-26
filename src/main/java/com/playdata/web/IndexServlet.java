@@ -20,7 +20,7 @@ public class IndexServlet extends HttpServlet {
         BoardService boardService = new BoardService();
         List<BoardDto> boards = boardService.getBoards(req);
         req.setAttribute("boards",boards);
-        RequestDispatcher dispatcher = req.getRequestDispatcher("/index.jsp");
+        RequestDispatcher dispatcher = req.getRequestDispatcher("/WEB-INF/views/index.jsp");
         dispatcher.forward(req, resp);
     }
 }

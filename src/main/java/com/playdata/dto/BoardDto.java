@@ -54,4 +54,46 @@ public class BoardDto {
     public void setCreated_at(String created_at) {
         this.created_at = created_at;
     }
+
+    public static BoardBuilder builder(){
+        return new BoardBuilder();
+    }
+
+    public static class BoardBuilder {
+        int id;
+        String title;
+        String content;
+        String author;
+        String created_at;
+
+        public BoardBuilder id(int id){
+            this.id = id;
+            return this;
+        }
+
+        public BoardBuilder title(String title){
+            this.title = title;
+            return this;
+        }
+
+        public BoardBuilder content(String content){
+            this.content = content;
+            return this;
+        }
+
+        public BoardBuilder author(String author){
+            this.author = author;
+            return this;
+        }
+
+        public BoardBuilder created_at(String created_at){
+            this.created_at = created_at;
+            return this;
+        }
+
+        public BoardDto build(){
+            return new BoardDto(id, title, content, author, created_at);
+        }
+
+    }
 }
